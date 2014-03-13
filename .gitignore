@@ -45,6 +45,7 @@ build.log
 .CVS
 .hg*
 *.bsh
+project.properties
 
 # switch to regexp syntax.
 #  syntax: regexp
