@@ -1,5 +1,7 @@
 package com.orange.line.sprite;
 
+import org.andengine.engine.Engine;
+import org.andengine.entity.scene.Scene;
 import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.entity.sprite.ButtonSprite;
 import org.andengine.opengl.texture.TextureOptions;
@@ -76,26 +78,38 @@ public class GifSprite extends BaseSprite {
 	}
 	
 	private void initGif(int num , String path){
-		 childTextureRegions = new TextureRegion[num]; 
-		 startBgTexture = new BitmapTextureAtlas(activity.getTextureManager(), 1024, 1024);
-		 String realPath = "";
-	        for (int i=0; i<num; i++)  
-	        {  
-	        	if ((i + 1) < 10) {
-	        		realPath = path + "0" + (i + 1) + ".png";
-				}else {
-					realPath = path + (i + 1) + ".png";
-				}
-	        	childTextureRegions[i] = (TextureRegion) BitmapTextureAtlasTextureRegionFactory.createFromAsset(startBgTexture,  
-						activity, realPath, x, y);  
-	        }  
-	        mFaceTextureRegion = new TiledTextureRegion(startBgTexture, childTextureRegions);
-	        startBgTexture.load();
-	        sprite = new AnimatedSprite(x, y, mFaceTextureRegion,
-					activity.getVertexBufferObjectManager());
-	        sprite.animate(10,true);
+//		 childTextureRegions = new TextureRegion[num]; 
+//		 startBgTexture = new BitmapTextureAtlas(activity.getTextureManager(), 1024, 1024);
+//		 String realPath = "";
+//	        for (int i=0; i<num; i++)  
+//	        {  
+//	        	if ((i + 1) < 10) {
+//	        		realPath = path + "0" + (i + 1) + ".png";
+//				}else {
+//					realPath = path + (i + 1) + ".png";
+//				}
+//	        	childTextureRegions[i] = (TextureRegion) BitmapTextureAtlasTextureRegionFactory.createFromAsset(startBgTexture,  
+//						activity, realPath, x, y);  
+//	        }  
+//	        mFaceTextureRegion = new TiledTextureRegion(startBgTexture, childTextureRegions);
+//	        startBgTexture.load();
+//	        sprite = new AnimatedSprite(x, y, mFaceTextureRegion,
+//					activity.getVertexBufferObjectManager());
+//	        sprite.animate(10,true);
+//	        
+		
 	}
 	
+	private void init(Engine mEngine,Scene mMenuScene){
+		sprite = new AnimationSprite(activity,
+                mEngine,
+                new String[]{"game_mole1.png",
+                        "game_mole2.png",
+                        "game_mole3.png",
+                        "game_mole4.png",
+                        "game_mole5.png",},
+                100, 100, 85, 85);
+	}
 	private TextureRegion[] childTextureRegions;
 	
 
