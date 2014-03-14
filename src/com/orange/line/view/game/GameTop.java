@@ -35,7 +35,7 @@ public class GameTop extends BaseView {
 	private GifSprite pay_gold;
 //	private NormalButtonSprite pay_gold[];
 	private NormalSprite up_level;
-	private NormalSprite up_level_exp[];
+	private GifSprite up_level_exp;
 	private NormalSprite up_level_exp_bg;
 	private NormalButtonSprite help_up;
 	private NormalButtonSprite help_down;
@@ -55,11 +55,11 @@ public class GameTop extends BaseView {
 		
 		int x = between * 2;
 		top_gold = new GifSprite();
-		top_gold.init(activity, common + "comm_energy_bg_", x, 0, 5,2,200);
+		top_gold.init(activity, common + "comm_energy_bg_", x, 0,300,10);
 		x += (int)(top_gold.getSprite().getWidth() + between / 2);
 		
 		pay_gold = new GifSprite();
-		pay_gold.init(activity, common + "comm_ef_pay_", x, 0, 2,1,400);
+		pay_gold.init(activity, common + "comm_ef_pay_", x, 0, 700,2);
 //		initPay(x);
 		
 		x += pay_gold.getSprite().getWidth() + between;
@@ -69,7 +69,9 @@ public class GameTop extends BaseView {
 		//
 		x += 7;
 		int y = top_bg.getCenterY();
-		initUpLevel(x,y - 15);
+		up_level_exp = new GifSprite();
+		up_level_exp.init(activity, common + "comm_up_exp_inner_", x, y - 15, 500,10);
+//		initUpLevel(x,y - 15);
 		up_level_exp_bg = new NormalSprite();
 		up_level_exp_bg.init(activity, common + "comm_up_exp_bg.png", x, y - 15);
 		
@@ -115,13 +117,14 @@ public class GameTop extends BaseView {
 		
 		
 		attachChild(up_level_exp_bg.getSprite());
+		attachChild(up_level_exp.getSprite());
 		
-		for (int i = 0; i < up_level_exp.length; i++) {
-			attachChild(up_level_exp[i].getSprite());
-			if (i == up_level_exp.length - 1) {
-				up_level_exp[i].getSprite().setVisible(true);
-			}
-		}
+//		for (int i = 0; i < up_level_exp.length; i++) {
+//			attachChild(up_level_exp[i].getSprite());
+//			if (i == up_level_exp.length - 1) {
+//				up_level_exp[i].getSprite().setVisible(true);
+//			}
+//		}
 		attachChild(up_level.getSprite());
 		
 		attachChild(help_up.getSprite());
@@ -138,19 +141,20 @@ public class GameTop extends BaseView {
 	
 	
 	
-	private void initUpLevel(int x,int y){
-		up_level_exp = new NormalSprite[10];
-		for (int i = 1; i < up_level_exp.length + 1; i++) {
-			up_level_exp[i - 1] = new NormalSprite();
-			if (i >= 10) {
-				up_level_exp[i - 1].init(activity, common + "comm_up_exp_inner_"+ i +".png", x, y,3,1);
-			}else {
-				up_level_exp[i - 1].init(activity, common + "comm_up_exp_inner_0"+ i +".png", x, y,3,1);
-			}
-		}
-	}
+//	private void initUpLevel(int x,int y){
+//		up_level_exp = new NormalSprite[10];
+//		for (int i = 1; i < up_level_exp.length + 1; i++) {
+//			up_level_exp[i - 1] = new NormalSprite();
+//			if (i >= 10) {
+//				up_level_exp[i - 1].init(activity, common + "comm_up_exp_inner_"+ i +".png", x, y,3,1);
+//			}else {
+//				up_level_exp[i - 1].init(activity, common + "comm_up_exp_inner_0"+ i +".png", x, y,3,1);
+//			}
+//		}
+//	}
 	
 	public NormalButtonSprite getHelp_up() {
 		return help_up;
 	}
+	
 }
