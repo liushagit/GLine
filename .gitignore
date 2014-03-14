@@ -3,6 +3,9 @@ log/*
 /*.log.*
 .checkstyle
 
+gen
+gen/*
+
 # use glob syntax.
 syntax: glob
 *.ser
@@ -45,6 +48,7 @@ build.log
 .CVS
 .hg*
 *.bsh
+
 project.properties
 
 # switch to regexp syntax.
