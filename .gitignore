@@ -3,6 +3,9 @@ log/*
 /*.log.*
 .checkstyle
 
+gen
+gen/*
+
 # use glob syntax.
 syntax: glob
 *.ser
