@@ -46,6 +46,8 @@ build.log
 .hg*
 *.bsh
 
+project.properties
+
 # switch to regexp syntax.
 #  syntax: regexp
 #  ^\.pc//gserver
